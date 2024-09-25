@@ -1,0 +1,42 @@
+.page-action {
+  color: #f0f8ff;
+  margin: .5rem;
+}
+
+.page-action-cont, .cellprop-actions-cont, .formula-actions-cont, .grid-actions-cont, .sheet-actions-cont {
+  align-items: center;
+  display: flex;
+}
+
+.page-action-cont {
+  background-color: green;
+  height: 3rem;
+}
+
+.page-action {
+  padding: 0 1rem;
+}
+
+.cellprop-actions-cont {
+  background-color: pink;
+  height: 3rem;
+}
+
+.cellprop-actions-cont .material-icons {
+  font-size: 1.5rem;
+}
+
+.formula-actions-cont {
+  background-color: #ffa07a;
+  height: 3rem;
+}
+
+.grid-actions-cont {
+  background-color: #ffffe0;
+  height: calc(100vh - 12rem);
+}
+
+.sheet-actions-cont {
+  height: 3rem;
+}
+/*# sourceMappingURL=index.61d3354a.css.map */

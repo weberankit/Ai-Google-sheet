@@ -6,7 +6,47 @@
 
 
 
+/* Global Styles */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.page-action-cont, 
+.cellprop-actions-cont, 
+.formula-actions-cont, 
+.grid-actions-cont, 
+.sheet-actions-cont {
+  display: flex;
+  align-items: center;
+}
+
+/* Individual Container Styles */
+
+.page-action-cont {
+  height: 3rem;
+  background-color: #008000; /* green */
+}
+
+.page-action {
+  padding: 0 1rem;
+}
+
+.cellprop-actions-cont {
+  height: 3rem;
+  background-color: #FFC0CB; /* pink */
+}
+
+.cellprop-actions-cont .material-icons {
+  font-size: 1.5rem;
+}
+
+.formula-actions-cont {
+  height: 3rem;
+  background-color: #FFA07A; /* orange */
+}
+
+.grid-actions-cont {
+  background-color: #FFFFE0; /* yellow */
+  height: calc(100vh - 12rem);
+}
+
+.sheet-actions-cont {
+  height: 3rem;
+}
