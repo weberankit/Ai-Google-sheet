@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+
+    
+</head>
+
+
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #ecf0f1;
+}
+
+.address-row {
+  height: 2rem;
+  width: 5rem;
+  border: 1px solid #dfe4ea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.row-cont{
+   display: flex;
+}
+.cell{
+ height: 2rem;
+  width: 5rem;
+  border: 1px solid #dfe4ea;
+  outline: none;
+}
+
+.address-col{
+    height: 2rem;
+  width: 3rem;
+  border: 1px solid #dfe4ea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sheet-actions-cont {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  gap: 1rem;
+  background-color: #ecf0f1;
+}
+.sheet-actions-cont > * {
+  display: inline-block;
+}
+.sheet-add-icon {
+  width: 1vw;
+}
+.sheet-add-icon:hover {
+  cursor: default;
+}
+
+.sheets-folder-cont {
+  display: flex;
+  align-items: center;
+  height: 80%;
+  width: 5rem;
+  width: calc( 100vw - 2vw );
+  overflow: auto;
+}
+.sheet-folder {
+  height: 80%;
+  text-decoration: underline;
+  font-weight: bold;
+  text-decoration-thickness: 3px;
+  font-size: 0.9rem;
+  /* background-color: lightblue; */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sheet-content {
+  width: 5rem;
+  /* background-color: lightgreen; */
+}
+
+
+
+.cellprop-actions-cont > *:hover {
+  cursor: pointer;
+}
+.cellprop-actions-cont > select {
+  border: none;
+  border-radius: 2px;
+  outline: none;
+}
+.font-family-prop {
+  padding: 0.2rem;
+}
+.font-size-prop {
+  padding: 0.2rem;
+}
+.color-prop {
+  position: relative;
+}
+.color-prop > input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+
+</style>
+
+
+
+    <body >
+
+        <div class="page-actions-cont flex   bg-green-400 text-white font-semibold [&>*]:px-4 [&>*]:py-2 pt-3">
+          <div class="page-action mr-3">Home</div>
+          <div class="page-action selected-page-action mr-3 bg-[#ecf0f1] text-green-400 ">File</div>
+          <div class="page-action mr-3">Insert</div>
+          <div class="page-action mr-3">Layout</div>
+          <div class="page-action mr-3">Help</div>
+        </div>
+        
+        
+        <div class="cellprop-actions-cont flex  p-1  [&>*]:m-2 bg-[#ecf0f1]">
+          <span class="material-icons copy">
+              content_copy
+          </span>
+          <span class="material-icons cut">
+              content_cut
+          </span>
+          <span class="material-icons paste">
+              content_paste
+          </span>
+          <select class="font-family-prop">
+              <option value="monospace">Monospace</option>
+              <option value="sans-serif">Sans-Serif</option>
+              <option value="fantasy">Fantasy</option>
+              <option value="cursive">Cursive</option>
+          </select>
+          <select class="font-size-prop">
+              <option value="14">14</option>
+              <option value="16">16</option>
+              <option value="18">18</option>
+              <option value="20">20</option>
+          </select>
+          <span class="material-icons bold">
+              format_bold
+          </span>
+          <span class="material-icons italic">
+              format_italic
+          </span>
+          <span class="material-icons underline">
+              format_underlined
+          </span>
+          <span class="left material-icons alignment">
+              format_align_left
+          </span>
+          <span class="center material-icons alignment">
+              format_align_center
+          </span>
+          <span class="right material-icons alignment">
+              format_align_right
+          </span>
+          <div class="color-prop">
+              <span class="material-icons">
+                  format_color_text
+              </span>
+              <input type="color" class="font-color-prop">
+          </div>
+          <div class="color-prop">
+              <span class="material-icons">
+                  format_color_fill
+              </span>
+              <input type="color" class="BGcolor-prop">
+          </div>
+          <span class="material-icons download">
+              cloud_download
+          </span>
+          <span class="material-icons open">
+              cloud_upload
+          </span>
+        </div>
+        
+        
+        <div class="formula-actions-cont [&>*]:ml-3 [&>*]:h-6 bg-[#ecf0f1] w-[1000px] " style="display: grid; grid-template-columns:110px 70px auto;">
+          <input type="text"  readonly class="address-bar outline-none">
+          <img class="formula-icon" src="https://img.icons8.com/ios/50/000000/formula-fx.png" />
+          <input  class=" outline-none w-full col-span-" type="text" class="formula-bar">
+        </div>
+        
+        
+        
+        <div class="grid-cont relative flex overflow-scroll h-[72vh] mt-1">
+          <div class="top-left-dummy-box bg-gray-400 fixed w-[3rem] h-[2rem] z-[22] "></div>
+          <div class="address-col-cont mt-[33px] sticky  left-0 "></div>
+          <div class="cells-cont absolute top-0 left-[3rem]  ">
+              <div class=" z-[12]  address-row-cont  sticky top-0  flex [&>*]:px-6 [&>*]:py-2  "></div>
+          </div>
+        </div>
+        
+        
+        
+        
+        <div class="sheet-actions-cont sticky bottom-0">
+          <div class="sheet-add-icon">
+              <span class="material-icons">
+                  post_add
+              </span>
+          </div>
+          <div class="sheets-folder-cont ">
+          </div>
+        </div>
+        
+
+        
+    <script src="./dist/index.js"></script>
+        </body>  
+
+</html>
