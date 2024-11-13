@@ -25,7 +25,7 @@ for(let i=0;i<colos;i++){
     addressRowCont?.appendChild(addressRow)
 }
   
-//creating cell 
+//creating cell  
 for(let i=0;i<row;i++){
     let rowCont=document.createElement("div")
     rowCont.setAttribute("class","row-cont")
@@ -33,6 +33,11 @@ for(let i=0;i<row;i++){
    let cell=document.createElement("div")
    cell.setAttribute("class","cell")
    cell.setAttribute("contenteditable","true")
+   //do not check for spell/words spellings
+   cell.setAttribute("spellcheck","false")
+   //for cell and storage identfication using attribute
+   cell.setAttribute("rid",i.toString())
+   cell.setAttribute("cid",j.toString())
    rowCont.appendChild(cell)
    //using to find cell address when user click on cell
     addEventListnerForAddressBar(cell,i,j)
