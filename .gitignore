@@ -3,3 +3,4 @@ node_modules/
 
 # Ignore build output or dist folder if applicable
 dist/
+.qodo

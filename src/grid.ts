@@ -6,7 +6,7 @@ let addressColCont=document.querySelector(".address-col-cont") as HTMLElement
 let addressRowCont=document.querySelector(".address-row-cont") as HTMLElement
 let cellCont=document.querySelector(".cells-cont")
 let addressBar=document.querySelector(".address-bar") as HTMLInputElement
-console.log(addressBar)
+//-console.log(addressBar)
 // for col- 1,2,3.....
 for(let i=0;i<row;i++){
     let addressCol=document.createElement("div") as HTMLElement
@@ -18,7 +18,6 @@ for(let i=0;i<row;i++){
 // for A,B,C,D--row wise
 for(let i=0;i<colos;i++){
     let addressRow=document.createElement("div") as HTMLElement
-   
     addressRow.setAttribute("class","address-row")
     //fromCharCode A,B,C see mdn
     addressRow.innerText=String.fromCharCode(65+i)
@@ -56,4 +55,14 @@ cell.addEventListener("click",()=>{
     console.log(rowId)
     addressBar.value=`${colId}${rowId}`
 })
+}
+
+
+//by default click on first cell
+let firstCell=document.querySelector(".cell")  as HTMLElement
+console.log(firstCell,"cheking")
+if(firstCell){
+     firstCell.click()
+}else{
+    console.log("fixing he  error")
 }

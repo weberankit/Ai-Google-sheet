@@ -44,3 +44,39 @@ let alignment=document.querySelectorAll(".alignment")
 let leftAlign=alignment[0]
 let centerAlign=alignment[1]
 let rightAlign=alignment[2]
+
+//let addressBar = document.querySelector(".address-bar") as HTMLElement
+
+let activeColorProp="red"
+let inactiveColorProp="black"
+
+
+
+//Application of two way binding
+
+bold?.addEventListener("click",()=>{
+    let address=addressBar.value
+    let [cell,cellProp]=  activeCell(address)
+ 
+    //Modification
+    cellProp.bold=!cellProp.bold //Data change
+    cell.style.fontWeight=cellProp.bold?"bold":"normal"     //ui change (1)
+    bold.style.backgroundColor=cellProp.bold?activeColorProp : inactiveColorProp
+})
+
+function activeCell(address:string):[cell:HTMLElement,cellProp:SheetDataType]{
+console.log(address)
+let [rid,cid] = decodeRIDCIDFromAddress(address)
+let cell=document.querySelector(`.cell[rid="${rid}"][cid="${cid}"]`) as HTMLElement
+let cellProp=sheetDB[rid][cid]
+return [cell,cellProp]
+}
+
+
+function decodeRIDCIDFromAddress(address:string){
+   //address  -> "A1"  ,  1->row , A->col
+    let rid=Number(address.slice(1))-1 ;
+    let cid=Number(address.slice(0).charCodeAt(0))-65 ; //"A" ->65 
+return [rid,cid]
+
+}
